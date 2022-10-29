@@ -1,0 +1,132 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{%static 'safewheel/css/style.css'%}">
+  <link rel="shortcut icon" href="{% static 'safewheel/images/icon.png'%}" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>SafeWheels | Estabelecimentos</title>
+</head>
+
+<body>
+
+  <header>
+    <!-- header que contem tudo. Título, caixa de login... -->
+    <a href={%url 'index'%} class="tittle-link">
+      <h1 class="header-tittle">SafeWheels</h1>
+    </a>
+    <div class="box-login">
+      <label for="user-login" class="label-login"><a href={%url 'logout'%} class="login-link">{{user}}</a></label>
+      <div class="user-box">
+        <a href={%url 'logout'%} class="login-link"><img src="{%static 'safewheel/images/user.png'%}" alt="silhueta de uma pessoa"
+            class="user-img" id="user-login"></a>
+      </div>
+    </div>
+
+  </header>
+
+  <main>
+
+    <div>
+      <nav class="dashboard">
+
+        <div class="dashboard-top">
+
+          <h4 class="tittle-dashboard" onclick="retrair()">Dashboard</h4>
+          <div for="checked-menu" class="bars-background" onclick="retrair()"><i class="fa fa-bars"
+              aria-hidden="true"></i></div>
+        </div>
+
+        <ul>
+
+          <a href={%url 'cadastrarE'%} class="estabele">
+            <li class="item-list">
+              <i class="fa fa-address-card" aria-hidden="true"></i>Cadastrar
+            </li>
+          </a>
+
+          <a href={%url 'index'%} class="estabe">
+            <li class="item-list">
+              <i class="fa fa-building" aria-hidden="true"></i>Estabelecimentos
+            </li>
+          </a>
+
+          </a>
+        </ul>
+        <p class="copyright">&copy;Copyright SafeWheels</p>
+      </nav>
+    </div>
+
+    <div class="boxing">
+
+      <div class="detail-box">
+
+        <h3 class="detail-tittle">{{estabelecimentos.nomeE}} - {{estabelecimentos.id}}</h3>
+
+        <div class="side-side">
+          <div class="part-one">
+            <div class="detail-img-box">
+              <ion-icon name="arrow-back-outline" class="seta"></ion-icon>
+              <div class="detail-img-center">{%if estabelecimentos.imagens%}
+                <img style="height:100%;width:100%;" src="{{estabelecimentos.imagens.url}}">{%endif%}</div>
+              <ion-icon name="arrow-forward-outline" class="seta"></ion-icon>
+            </div>
+
+            <div class="detail-infos">
+              <div class="label-detail">
+                <label class="label-text-detail">Localização:</label>
+                <div class="detail-text-box">
+                  <p class="detail-text">{{estabelecimentos.local}}</p>
+                </div>
+              </div>
+
+              <div class="label-detail">
+                <label class="label-text-detail">Horários:</label>
+                <div class="detail-text-box">
+                  <p class="detail-text">Indisponivel por Enquanto</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="part-two">
+            <div class="map-box">
+              <iframe class="map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31715.654134321725!2d-37.10443503749461!3d-6.463672107868202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7afed967d8e39a1%3A0xa3ea45eaea46de3b!2zQ2FpY8OzLCBSTiwgNTkzMDAtMDAw!5e0!3m2!1spt-BR!2sbr!4v1665953424920!5m2!1spt-BR!2sbr"
+                width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="area-infos">
+              <label for="" class="label-text-detail">Informações:</label>
+              <div class="local-infos">
+                <p>{{estabelecimentos.desc}}</p>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+
+</body>
+<script src="{%static 'safewheel/js/script.js'%}"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</html>

@@ -1,0 +1,58 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'safewheel/css/form.css'%}">
+  <link rel="shortcut icon" href="../icons/icon.png" type="image/x-icon">
+  <title>Login - SafeWheels</title>
+
+</head>
+
+<body>
+
+  <div class="form form-login">
+    <form action="{%url 'cadastrarU'%}" method="POST" class="form-blank"> {% csrf_token %}
+
+      <thead class="div-tittles">
+        <h1 class="form-tittle">Cadastro</h1>
+        <h4 class="second-tittle">SafeWheels</h4>
+      </thead>
+
+      <div class="inputs-div">
+        <label for="nome" class="label-form">Nome:</label>
+        <input type="text" class="input-blank" name="nome" id="usuario" required>
+      </div>
+
+      <div class="inputs-div">
+        <label for="nome" class="label-form">Email:</label>
+        <input type="email" class="input-blank" name="email" id="email" required>
+      </div>
+
+      <div class="inputs-div">
+        <label for="senha" class="label-form">Senha:</label>
+        <input type="password" class="input-blank" name="senha1" id="senha" required>
+      </div>
+
+      <div class="inputs-div">
+        <label for="senha" class="label-form">Confirmar senha:</label>
+        <input type="password" class="input-blank" name="senha2" id="senha2" required>
+      </div>
+
+      <input type="submit" value="Enviar" class="input-blank" id="input-submit">
+
+      <div class="help-links">
+        <a href={%url 'login'%} class="link-help">Já é cadastrado?</a>
+      </div>
+
+
+
+    </form>
+  </div>
+
+</body>
+
+</html>

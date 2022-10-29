@@ -1,0 +1,42 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'safewheel/css/form.css'%}">
+  <link rel="shortcut icon" href="{% static 'safewheel/images/icon.png'%}" type="image/x-icon">
+  <title>Login - SafeWheels</title>
+
+</head>
+
+<body>
+
+  <div class="form form-login">
+    <form action="{%url 'esqueceusenha'%}" method="POST" class="form-blank"> {% csrf_token %}
+
+      <thead class="div-tittles">
+        <h1 class="form-tittle">Mudar senha</h1>
+        <h4 class="second-tittle">SafeWheels</h4>
+      </thead>
+
+      <p class="email-esqueci">Digite seu email para recuperar a senha</p>
+
+      <div class="inputs-div">
+        <label for="nome" class="label-form">Email:</label>
+        <input type="email" name="email" class="input-blank" id="email" required>
+      </div>
+
+      <input type="submit" value="Enviar" class="input-blank" id="input-submit">
+      <div class="help-links">
+        <a href={%url 'login'%} class="link-help">Voltar</a>
+      </div>
+
+    </form>
+  </div>
+
+</body>
+
+</html>
